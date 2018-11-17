@@ -8,5 +8,11 @@
             "email": "halo@bungendang.com"
         }
     ],
-    "require": {}
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-0": {
+            "BafReport": "src/"
+        }
+    }
 }
