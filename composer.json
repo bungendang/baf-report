@@ -1,0 +1,12 @@
+{
+    "name": "bungendang/baf-report",
+    "description": "Extended Module for Reporting Bussan Auto Finance",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Endang Kurniawan",
+            "email": "halo@bungendang.com"
+        }
+    ],
+    "require": {}
+}
