@@ -11,8 +11,8 @@
     "minimum-stability": "dev",
     "require": {},
     "autoload": {
-        "psr-4": {
-            "BafReport\\BafReport\\": "src"
+        "psr-0": {
+            "BafReport": "src/"
         }
     }
 }
