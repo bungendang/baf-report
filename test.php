@@ -29,8 +29,14 @@ $career = new Career($db);
 // $data = $db->findAll('applicant');
 
 // $career = Career::getAll();
-var_dump($career->getAll([
-	'from'=>'2018-11-04',
-	'to'=>'2018-11-15'
-]));
+// var_dump($career->getAll([
+// 	'from'=>'2018-11-04',
+// 	'to'=>'2018-11-15'
+// ]));
+
+$form_data = [
+	"nama"=>"Endang Kurniawan"
+];
+
+echo $career->submit($form_data);
 // var_dump($data);

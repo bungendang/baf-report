@@ -50,5 +50,23 @@ class Career
 
 		return $result;
 	}
+	public function submit($data = NULL)
+	{
+		try
+		{
+			$inserted_date = date("Y-m-d H:i:s");
+			// $inserted_date = new \DateTime($inserted_date);
+			var_dump($inserted_date);
+			$sql = "INSERT INTO applicant (nama, jenis_kelamin, agama, tempat_lahir, tanggal_lahir, status_pernikahan, alamat, telpon1, telpon2, email, apply_as, cv_src, foto_src, tanggal_submit, created_at, updated_at) VALUE ('$data[nama]', '$data[jenis_kelamin], '$data[agama]', '$data[tempat_lahir]', $data[tanggal_lahir],'$data[status_pernikahan]', '$data[alamat]', '$data[telpon1]', '$data[telpon2]', '$data[email]', '$data[apply_as]', '$data[cv_src]', '$data[foto_src]', '$data[tanggal_submit]', '$inserted_date', '$inserted_date')";
+			$conn = $this->a->connect();
+			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$conn->exec($sql);
+		}
+		catch(PDOException $e)
+		{
+			echo "err";
+		}
+		return "Data submitted";
+	}
 }
 
