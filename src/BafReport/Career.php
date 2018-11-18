@@ -3,6 +3,7 @@
 namespace BafReport;
 // use BafReport\Db;
 use BafReport\Db;
+use PDO;
 
 class Career
 {
@@ -20,10 +21,11 @@ class Career
 		// BafReport::Db()
 		// var_dump($this->a->connect());
 		$conn = $this->a->connect();
+		// $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION, PDO::FETCH_ASSOC);
 		$sth = $conn->prepare("SELECT * FROM applicant");
 		$sth->execute();
 
-		$result = $sth->fetchAll();
+		$result = $sth->fetchAll(PDO::FETCH_ASSOC);
 
 		return $result;
 	}

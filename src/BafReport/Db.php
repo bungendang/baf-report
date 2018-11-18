@@ -48,7 +48,7 @@ class Db
 		    $conn = new PDO("mysql:host=".$this->host.";dbname=".$this->db_name, $this->username, $this->password);
 		    // $conn = new PDO("mysql:host=mysql;dbname=baf_extension_db", $this->username, $this->password);
 		    // set the PDO error mode to exception
-		    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION, PDO::FETCH_ASSOC);
 		    // echo "Connected successfully"; 
 		    }
 		catch(PDOException $e)
