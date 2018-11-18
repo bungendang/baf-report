@@ -29,5 +29,8 @@ $career = new Career($db);
 // $data = $db->findAll('applicant');
 
 // $career = Career::getAll();
-var_dump($career->getAll());
+var_dump($career->getAll([
+	'from'=>'2018-11-04',
+	'to'=>'2018-11-15'
+]));
 // var_dump($data);
