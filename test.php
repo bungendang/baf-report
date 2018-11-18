@@ -22,21 +22,6 @@ $config = Array (
 
 $db = new BafReport\Db($config);
 
-// $db->connect();
-
 $data = $db->findAll('applicant');
 
 var_dump($data);
-
-// $db->query('applicant');
-
-// var_dump($db);
-
-// $db->get('applicant');
-
-// $conn = BafReport\Db::connect();
-// $conn;
-
-
-
-// var_dump($conn);
