@@ -11,8 +11,9 @@
     "minimum-stability": "dev",
     "require": {},
     "autoload": {
-        "psr-0": {
-            "BafReport": "src/"
-        }
-    }
+        "psr-4" : {
+            "BafReport\\" : "src/"
+        },
+        "classmap" : ["lib/"]
+    },
 }
