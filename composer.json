@@ -15,5 +15,5 @@
             "BafReport\\" : "src/"
         },
         "classmap" : ["lib/"]
-    },
+    }
 }
