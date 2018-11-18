@@ -4,6 +4,7 @@ require_once __DIR__ . '/vendor/autoload.php'; // Autoload files using Composer 
 
 use BafReport;
 use BafReport\Db;
+use BafReport\Career as Career;
 // use BafReport\Career;
 
 // echo BafReport\BafReport::test();
@@ -21,7 +22,12 @@ $config = Array (
 
 
 $db = new BafReport\Db($config);
+$career = new Career($db);
 
-$data = $db->findAll('applicant');
+// $career = Career::getAll();
 
-var_dump($data);
+// $data = $db->findAll('applicant');
+
+// $career = Career::getAll();
+var_dump($career->getAll());
+// var_dump($data);
