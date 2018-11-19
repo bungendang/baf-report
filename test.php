@@ -29,14 +29,13 @@ $career = new Career($db);
 // $data = $db->findAll('applicant');
 
 // $career = Career::getAll();
-// var_dump($career->getAll([
-// 	'from'=>'2018-11-04',
-// 	'to'=>'2018-11-15'
-// ]));
+// var_dump($career->getAll());
 
-$form_data = [
-	"nama"=>"Endang Kurniawan"
-];
+var_dump($career->submit([
+	'nama'=>'Endang Kurniawan',
+	'email'=>'bungendang@gmail.com',
+	'telpon1'=>'08123123123',
+	'cv_src'=>'asdasdsd.com'
+]));
 
-echo $career->submit($form_data);
 // var_dump($data);
