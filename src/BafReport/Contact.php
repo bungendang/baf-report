@@ -5,7 +5,7 @@ namespace BafReport;
 use BafReport\Db;
 use PDO;
 
-class Career
+class Contact
 {
 	private $a;
 
@@ -20,7 +20,7 @@ class Career
     *	Get all applicant data, default is submitted today
     */
 	public function getAll($range_date = NULL){
-		$query = "SELECT * FROM applicant ";
+		$query = "SELECT * FROM contact ";
 		// var_dump(date("Y-m-d H:i:s"));
 		$to = "";
 		$from = "";
@@ -55,22 +55,22 @@ class Career
 	}
 	// Post application to DB
 	public function submit($data = array(
-		'nama'=>NULL, 'jenis_kelamin'=>NULL, 'status_pernikahan'=>NULL, 'agama'=>NULL, 'tempat_lahir'=>NULL, 'tanggal_lahir'=>0, 'status_pernikahan'=>NULL, 'alamat'=>NULL, 'telpon1'=>NULL, 'telpon2'=>NULL, 'email'=>NULL, 'apply_as'=>NULL, 'cv_src'=>NULL, 'foto_src'=>NULL, 'tanggal_submit'=>NULL, 'created_at'=>NULL, 'updated_at'=>NULL)
+		'nama'=>NULL, 'email'=>NULL, 'telpon'=>NULL, 'nomor_kontrak'=>NULL, 'tanggal_kontak'=>0, 'pesan'=>NULL, 'created_at'=>NULL, 'updated_at'=>NULL)
 		)
 	{
 		try
 		{
 			$inserted_date = date("Y-m-d H:i:s");
 			
-			if ($data['tanggal_lahir']) {
+			if ($data['tanggal_kontak']) {
 				# code...
 				// $tanggal_lahir = 0;
 			} else {
 				# code...
-				$tanggal_lahir = 0;
+				$tanggal_kontak = 0;
 			}
 			
-			$sql = "INSERT INTO applicant (nama, jenis_kelamin, agama, tempat_lahir, tanggal_lahir, status_pernikahan, alamat, telpon1, telpon2, email, apply_as, cv_src, foto_src, tanggal_submit, created_at, updated_at) VALUES ('$data[nama]', '$data[jenis_kelamin]', '$data[agama]', '$data[tempat_lahir]', $tanggal_lahir,'$data[status_pernikahan]', '$data[alamat]', '$data[telpon1]', '$data[telpon2]', '$data[email]', '$data[apply_as]', '$data[cv_src]', '$data[foto_src]', '$inserted_date', '$inserted_date', '$inserted_date')";
+			$sql = "INSERT INTO contact (tanggal_kontak, nama, email, telpon, pesan, nomor_kontrak, created_at, updated_at) VALUES ($tanggal_kontak, '$data[nama]', '$data[email]', '$data[telpon]', '$data[pesan]',  '$data[nomor_kontrak]', '$inserted_date', '$inserted_date')";
 			$conn = $this->a->connect();
 			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$conn->exec($sql);

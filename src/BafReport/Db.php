@@ -56,7 +56,6 @@ class Db
 		    // echo "Connection failed: " . $e->getMessage();
 	    }
         return $conn;
-
 	}
 
 	public function findAll($table_name)
