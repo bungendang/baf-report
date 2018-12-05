@@ -63,7 +63,7 @@ class Fleet
 			$exist = $this->findExistingEmail('pengajuan_fleet', $data['email']);
 			if ($exist) {
 				# code...
-				var_dump("exist");
+				// var_dump("exist");
 				$id = false;
 			} else {
 				# code...
@@ -87,7 +87,7 @@ class Fleet
 		
 	}
 	public function findExistingEmail($table, $email){
-		var_dump($email);
+		// var_dump($email);
 		$query = "SELECT * FROM $table ";
 		$query = $query."WHERE pengajuan_fleet.email = '$email'";
 		$conn = $this->a->connect();
