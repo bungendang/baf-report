@@ -2,10 +2,15 @@
 
 require_once __DIR__ . '/vendor/autoload.php'; // Autoload files using Composer autoload
 
-use BafReport;
-use BafReport\Db;
+// var_dump(__DIR__);
+
+
+
+// use BafReport;
+use BafReport\Db as DB;
 use BafReport\Career as Career;
 use BafReport\Contact as Contact;
+use BafReport\Fleet as Fleet;
 // use BafReport\Career;
 
 // echo BafReport\BafReport::test();
@@ -22,8 +27,9 @@ $config = Array (
 );
 
 
-$db = new BafReport\Db($config);
-$career = new Career($db);
+
+$db = new DB($config);
+// $career = new Career($db);
 
 // $career = Career::getAll();
 
@@ -41,13 +47,25 @@ $career = new Career($db);
 
 // var_dump($data);
 
-$contact = new Contact($db);
+// $contact = new Contact($db);
 
 // var_dump($contact->getAll());
-var_dump($contact->submit([
-	'nama'=> 'Endang Kurniawan',
-	'telpon'=>"0812312312312",
-	'email'=>'endag_kur@gmail.com',
-	'pesan'=>'ini pesan saya',
-	'nomor_kontrak'=>'0123123123'
+// var_dump($contact->submit([
+// 	'nama'=> 'Endang Kurniawan',
+// 	'telpon'=>"0812312312312",
+// 	'email'=>'endag_kur@gmail.com',
+// 	'pesan'=>'ini pesan saya',
+// 	'nomor_kontrak'=>'0123123123'
+// ]));
+
+
+$fleet = new Fleet($db);
+
+var_dump($fleet->submit([
+    'nama'=> "endang Kurniawan",
+    "perusahaan" => "Does",
+    "telpon" => "08123123123",
+    "email" => "bungendang@gmail.com"
 ]));
+
+var_dump($fleet->getAll());

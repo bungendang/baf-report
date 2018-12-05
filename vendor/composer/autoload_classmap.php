@@ -6,4 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'BafReport\\BafReport' => $baseDir . '/src/BafReport/BafReport.php',
+    'BafReport\\Career' => $baseDir . '/src/BafReport/Career.php',
+    'BafReport\\Contact' => $baseDir . '/src/BafReport/Contact.php',
+    'BafReport\\Db' => $baseDir . '/src/BafReport/Db.php',
+    'BafReport\\Fleet' => $baseDir . '/src/BafReport/Fleet.php',
 );

@@ -4,22 +4,36 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit0d76dca7d7648e77a546c3d3afad2435
+class ComposerStaticInitcab7effaf684ba2e264268666234d2a3
 {
-    public static $prefixesPsr0 = array (
+    public static $prefixLengthsPsr4 = array (
         'B' => 
         array (
-            'BafReport' => 
-            array (
-                0 => __DIR__ . '/../..' . '/src',
-            ),
+            'BafReport\\' => 10,
         ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'BafReport\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
+    );
+
+    public static $classMap = array (
+        'BafReport\\BafReport' => __DIR__ . '/../..' . '/src/BafReport/BafReport.php',
+        'BafReport\\Career' => __DIR__ . '/../..' . '/src/BafReport/Career.php',
+        'BafReport\\Contact' => __DIR__ . '/../..' . '/src/BafReport/Contact.php',
+        'BafReport\\Db' => __DIR__ . '/../..' . '/src/BafReport/Db.php',
+        'BafReport\\Fleet' => __DIR__ . '/../..' . '/src/BafReport/Fleet.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixesPsr0 = ComposerStaticInit0d76dca7d7648e77a546c3d3afad2435::$prefixesPsr0;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitcab7effaf684ba2e264268666234d2a3::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitcab7effaf684ba2e264268666234d2a3::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitcab7effaf684ba2e264268666234d2a3::$classMap;
 
         }, null, ClassLoader::class);
     }

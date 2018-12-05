@@ -5,7 +5,7 @@ namespace BafReport;
 use BafReport\Db;
 use PDO;
 
-class Contact
+class Fleet
 {
 	private $a;
 
@@ -20,7 +20,7 @@ class Contact
     *	Get all applicant data, default is submitted today
     */
 	public function getAll($range_date = NULL){
-		$query = "SELECT * FROM contact ";
+		$query = "SELECT * FROM pengajuan_fleet ";
 		// var_dump(date("Y-m-d H:i:s"));
 		$to = "";
 		$from = "";
@@ -55,22 +55,14 @@ class Contact
 	}
 	// Post application to DB
 	public function submit($data = array(
-		'nama'=>NULL, 'email'=>NULL, 'telpon'=>NULL, 'nomor_kontrak'=>NULL, 'pesan'=>NULL, 'created_at'=>NULL, 'updated_at'=>NULL)
+		'nama'=>NULL, 'perusahaan'=>NULL, 'email'=>NULL, 'telpon'=>NULL, 'created_at'=>NULL, 'updated_at'=>NULL)
 		)
 	{
 		try
 		{
 			$inserted_date = date("Y-m-d H:i:s");
 			
-			if ($data['tanggal_kontak']) {
-				# code...
-				// $tanggal_lahir = 0;
-			} else {
-				# code...
-				$tanggal_kontak = 0;
-			}
-			
-			$sql = "INSERT INTO contact (nama, email, telpon, pesan, nomor_kontrak, created_at, updated_at) VALUES ('$data[nama]', '$data[email]', '$data[telpon]', '$data[pesan]',  '$data[nomor_kontrak]', '$inserted_date', '$inserted_date')";
+			$sql = "INSERT INTO pengajuan_fleet (nama, perusahaan, email, telpon, created_at, updated_at) VALUES ('$data[nama]', '$data[perusahaan]', '$data[email]', '$data[telpon]', '$inserted_date', '$inserted_date')";
 			$conn = $this->a->connect();
 			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$conn->exec($sql);
