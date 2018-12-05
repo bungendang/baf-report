@@ -65,7 +65,7 @@ var_dump($fleet->submit([
     'nama'=> "endang Kurniawan",
     "perusahaan" => "Does",
     "telpon" => "08123123123",
-    "email" => "bungendang@gmail.com"
+    "email" => "bungendangss@gmail.com"
 ]));
 
-var_dump($fleet->getAll());
+// var_dump($fleet->getAll());

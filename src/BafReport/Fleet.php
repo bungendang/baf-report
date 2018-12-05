@@ -60,13 +60,23 @@ class Fleet
 	{
 		try
 		{
-			$inserted_date = date("Y-m-d H:i:s");
+			$exist = $this->findExistingEmail('pengajuan_fleet', $data['email']);
+			if ($exist) {
+				# code...
+				var_dump("exist");
+				$id = false;
+			} else {
+				# code...
+				$inserted_date = date("Y-m-d H:i:s");
 			
-			$sql = "INSERT INTO pengajuan_fleet (nama, perusahaan, email, telpon, created_at, updated_at) VALUES ('$data[nama]', '$data[perusahaan]', '$data[email]', '$data[telpon]', '$inserted_date', '$inserted_date')";
-			$conn = $this->a->connect();
-			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$conn->exec($sql);
-			$id = $conn->lastInsertId();
+				$sql = "INSERT INTO pengajuan_fleet (nama, perusahaan, email, telpon, created_at, updated_at) VALUES ('$data[nama]', '$data[perusahaan]', '$data[email]', '$data[telpon]', '$inserted_date', '$inserted_date')";
+				$conn = $this->a->connect();
+				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				$conn->exec($sql);
+				$id = $conn->lastInsertId();
+			}
+			
+			
 			// var_dump($id);
 			return $id;
 		}
@@ -75,6 +85,19 @@ class Fleet
 			echo "err";
 		}
 		
+	}
+	public function findExistingEmail($table, $email){
+		var_dump($email);
+		$query = "SELECT * FROM $table ";
+		$query = $query."WHERE pengajuan_fleet.email = '$email'";
+		$conn = $this->a->connect();
+		
+		$sth = $conn->prepare($query);
+		$sth->execute();
+
+		$result = $sth->fetchAll(PDO::FETCH_ASSOC);
+		// var_dump($result);
+		return $result;
 	}
 }
 
